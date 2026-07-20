@@ -37,8 +37,9 @@ export const AppShell: React.FC = () => {
     <Box sx={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', bgcolor: 'background.default' }}>
       <AppBar position="sticky" elevation={0}>
         <Toolbar sx={{ minHeight: 64 }}>
-    <Box component="img" src="/logo-mark-white.png" alt="elegantpedi" sx={{ height: 26, flexGrow: 1 }} />
-          <Chip
+<Typography variant="h5" sx={{ flexGrow: 1, color: '#fff', fontWeight: 600, letterSpacing: '0.02em' }}>
+  EPIMS
+</Typography>          <Chip
             size="small"
             label={isLiveConnected ? 'Live · Google Sheets' : 'Demo data'}
             sx={{
