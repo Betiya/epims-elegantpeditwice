@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { Box, Typography, Button, Stack, Paper } from '@mui/material';
+import { Box, Typography, Stack, Paper } from '@mui/material';
 import { useAuth } from '../context/AuthContext';
 
 export const Login: React.FC = () => {
-  const { signInDevMode, googleClientId } = useAuth();
+  const { googleClientId } = useAuth();
   const btnRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,24 +19,19 @@ export const Login: React.FC = () => {
 
   return (
     <Box sx={{ minHeight: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: '#000', p: 3 }}>
-      <Paper elevation={0} sx={{ p: 5, maxWidth: 360, width: '100%', textAlign: 'center', border: 'none' }}>
-        <Typography variant="h1" sx={{ fontSize: '2.6rem', mb: 0.5 }}>
-          EPIMS
-        </Typography>
-        <Typography variant="overline" color="text.secondary">
-          ElegantPedi Inventory &amp; Supplier Management
+      <Paper elevation={0} sx={{ p: 5, maxWidth: 360, width: '100%', textAlign: 'center', border: 'none', bgcolor: 'transparent' }}>
+        <Box component="img" src="/logo-mark-white.png" alt="elegantpedi" sx={{ width: '70%', maxWidth: 260, mx: 'auto', display: 'block', mb: 4 }} />
+        <Typography variant="overline" sx={{ color: 'rgba(255,255,255,0.7)' }}>
+          Inventory &amp; Supplier Management
         </Typography>
 
         <Stack spacing={2} sx={{ mt: 5 }}>
           <Box ref={btnRef} sx={{ display: 'flex', justifyContent: 'center' }} />
           {!googleClientId && (
-            <Typography variant="caption" color="text.secondary">
-              Google Sign-In isn't configured yet — set VITE_GOOGLE_CLIENT_ID (see README) to enable it.
+            <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.6)' }}>
+              Google Sign-In isn't configured yet — set VITE_GOOGLE_CLIENT_ID.
             </Typography>
           )}
-          <Button variant="outlined" color="inherit" onClick={signInDevMode} sx={{ borderColor: '#000' }}>
-            Continue in demo mode
-          </Button>
         </Stack>
       </Paper>
     </Box>
